@@ -78,7 +78,6 @@ const uint16_t PROGMEM combo_w_e[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_i_o[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_m_comm[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_c_v[]    = {KC_C, KC_V, COMBO_END};
-
 const uint16_t PROGMEM combo_f_d[] = {KC_F, KC_D, COMBO_END};
 const uint16_t PROGMEM combo_f_s[] = {KC_F, KC_S, COMBO_END};
 const uint16_t PROGMEM combo_s_d[] = {KC_S, KC_D, COMBO_END};
@@ -87,7 +86,6 @@ const uint16_t PROGMEM combo_k_j[] = {KC_K, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_l_j[] = {KC_L, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_l_k[] = {KC_L, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_scln_j[] = {KC_SCLN, KC_J, COMBO_END};
-
 const uint16_t PROGMEM combo_o_p[] = {KC_O, KC_P, COMBO_END};
 
 enum combo_events {
@@ -122,13 +120,13 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         case COMBO_ESC1:
         case COMBO_ESC2:
             if (pressed) {
-                tap_code(KC_LNG1);
+                tap_code(KC_LNG2);
                 register_code(KC_ESC);
             } else {
                 unregister_code(KC_ESC);
             }
+            break;
         case COMBO_IME_OFF:
-            // tap_code(IME_CANCEL as uint8_t);
             tap_code(KC_LNG1);
             break;
         default:
