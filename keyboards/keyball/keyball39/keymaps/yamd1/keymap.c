@@ -22,24 +22,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // clang-format off
 #define LSHIFT_Z MT(MOD_LSFT, KC_Z)
 #define LY3_BSPC LT(3, KC_BSPC)
-#define LY1_BSPC LT(1, KC_BSPC)
-#define LY2_ENT  LT(2, KC_ENT)
 #define CGR      LCTL(LGUI(KC_RIGHT))
 #define CGL      LCTL(LGUI(KC_LEFT))
 #define CG_LOCK  LCTL(LGUI(KC_L))
 #define ALT_SPC  LALT(KC_SPC)
-
-#define HRC_L_CTL LT(0, KC_LCTL)
-#define HRC_L_SFT OSM(MOD_LSFT)
-#define HRC_L_ALT LT(0, KC_LALT)
-#define HRC_L_GUI OSM(MOD_LGUI)
-#define HRC_R_CTL LT(0, KC_RCTL)
-#define HRC_R_SFT OSM(MOD_LSFT)
-#define HRC_R_ALT LT(0, KC_RALT)
-#define HRC_R_GUI OSM(MOD_LGUI)
-#define HRC_L_CTL_SFT OSM(MOD_LCTL | MOD_LSFT)
-#define HRC_R_CTL_SFT OSM(MOD_LCTL | MOD_LSFT)
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
@@ -92,40 +78,29 @@ const uint16_t PROGMEM combo_w_e[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_i_o[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_m_comm[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_c_v[]    = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_d_f[] = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM combo_s_f[] = {KC_S, KC_F, COMBO_END};
+
+const uint16_t PROGMEM combo_f_d[] = {KC_F, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_f_s[] = {KC_F, KC_S, COMBO_END};
 const uint16_t PROGMEM combo_s_d[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM combo_a_f[] = {KC_A, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_k_j[] = {KC_K, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_l_j[] = {KC_L, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_l_k[] = {KC_L, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_scln_j[] = {KC_SCLN, KC_J, COMBO_END};
+
 const uint16_t PROGMEM combo_o_p[] = {KC_O, KC_P, COMBO_END};
 
 enum combo_events {
-  COMBO_ESC1,
+  COMBO_ESC1 = COMBO_SAFE_RANGE,
   COMBO_ESC2,
   COMBO_IME_ON,
   COMBO_IME_OFF,
   COMBO_BSPC,
-
-    COMBO_HRC_L_CTL,
-    COMBO_HRC_L_SFT,
-    COMBO_HRC_L_ALT,
-    COMBO_HRC_L_GUI,
-    COMBO_HRC_R_CTL,
-    COMBO_HRC_R_SFT,
-    COMBO_HRC_R_ALT,
-    COMBO_HRC_R_GUI,
-    COMBO_HRC_L_CTL_SFT,
-    COMBO_HRC_R_CTL_SFT,
-
-    COMBO_SAFE_RANGE,
 };
 
 combo_t key_combos[] = {
-  [COMBO_HRC_L_CTL] = COMBO(combo_d_f, HRC_L_CTL),
-  [COMBO_HRC_L_SFT] = COMBO(combo_s_f, HRC_L_SFT),
+  [COMBO_HRC_L_CTL] = COMBO(combo_f_d, HRC_L_CTL),
+  [COMBO_HRC_L_SFT] = COMBO(combo_f_s, HRC_L_SFT),
   [COMBO_HRC_L_ALT] = COMBO(combo_s_d, HRC_L_ALT),
   [COMBO_HRC_L_GUI] = COMBO(combo_a_f, HRC_L_GUI),
   [COMBO_HRC_R_CTL] = COMBO(combo_k_j, HRC_R_CTL),
@@ -147,7 +122,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         case COMBO_ESC1:
         case COMBO_ESC2:
             if (pressed) {
-                tap_code(KC_LNG2);
+                tap_code(KC_LNG1);
                 register_code(KC_ESC);
             } else {
                 unregister_code(KC_ESC);
