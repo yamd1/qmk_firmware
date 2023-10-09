@@ -87,6 +87,8 @@ const uint16_t PROGMEM combo_l_j[] = {KC_L, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_l_k[] = {KC_L, KC_K, COMBO_END};
 const uint16_t PROGMEM combo_scln_j[] = {KC_SCLN, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_o_p[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_g_b[] = {KC_G, KC_B, COMBO_END};
+const uint16_t PROGMEM combo_w_q[] = {KC_W, KC_Q, COMBO_END};
 
 enum combo_events {
   COMBO_ESC1 = COMBO_SAFE_RANGE,
@@ -94,6 +96,8 @@ enum combo_events {
   COMBO_IME_ON,
   COMBO_IME_OFF,
   COMBO_BSPC,
+  COMBO_TAB,
+  COMBO_CAPS,
 };
 
 combo_t key_combos[] = {
@@ -112,6 +116,8 @@ combo_t key_combos[] = {
   [COMBO_IME_OFF] = COMBO_ACTION(combo_c_v),
 
   [COMBO_BSPC] = COMBO(combo_o_p, KC_BSPC),
+  [COMBO_CAPS] = COMBO(combo_g_b, KC_CAPS),
+  [COMBO_TAB] = COMBO(combo_w_q, KC_TAB),
 };
 
 // clang-format on
