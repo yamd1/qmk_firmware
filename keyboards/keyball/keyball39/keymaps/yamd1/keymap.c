@@ -21,11 +21,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // clang-format off
 #define LSHIFT_Z MT(MOD_LSFT, KC_Z)
-#define LY3_BSPC LT(3, KC_BSPC)
+#define LY3_SPC  LT(3, KC_SPC)
 #define CGR      LCTL(LGUI(KC_RIGHT))
 #define CGL      LCTL(LGUI(KC_LEFT))
-#define CG_LOCK  LCTL(LGUI(KC_L))
+#define CG_LOCK  LGUI(KC_L)
 #define ALT_SPC  LALT(KC_SPC)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
@@ -33,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q     ,  KC_W     ,  KC_E     ,  KC_R     ,  KC_T     ,                               KC_Y     ,  KC_U     ,  KC_I     ,  KC_O     ,  KC_P     ,
     KC_A     ,  KC_S     ,  KC_D     ,  KC_F     ,  KC_G     ,                               KC_H     ,  KC_J     ,  KC_K     ,  KC_L     ,  KC_SCLN  ,
     LSHIFT_Z ,  KC_X     ,  KC_C     ,  KC_V     ,  KC_B     ,                               KC_N     ,  KC_M     ,  KC_COMM  ,  KC_DOT   ,  KC_SLSH  ,
-    KC_LCTL  ,  KC_LGUI  ,  KC_LALT  ,  LY3_BSPC ,  MO(1)    ,  KC_SPC   ,      KC_ENT    ,  MO(2)    ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  KC_TAB
+    KC_LCTL  ,  KC_LGUI  ,  KC_LALT  ,  KC_BSPC  ,  MO(1)    ,  LY3_SPC  ,      KC_ENT    ,  MO(2)    ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  KC_TAB
     ),
 
   [1] = LAYOUT_universal(
@@ -51,8 +52,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
   [3] = LAYOUT_universal(
-    CG_LOCK  ,  _______  ,  _______  ,  _______  ,  _______  ,                              _______  ,  _______  ,  ALT_SPC  ,  _______  ,  KC_PSCR  ,
-    _______  ,  _______  ,  KC_LCTL  ,  KC_LSFT  ,  _______  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  _______  ,
+    CG_LOCK  ,  _______  ,  _______  ,  _______  ,  _______  ,                              _______  ,  _______  ,  ALT_SPC  ,  _______  ,  C(S(KC_P)),
+    _______  ,  _______  ,  KC_LCTL  ,  KC_LSFT  ,  _______  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  KC_PSCR  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______  ,                              CGL      ,  CGR      ,  _______  ,  _______  ,  _______  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______
   ),
@@ -66,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 3
+    // Auto enable scroll mode when the highest layer is 3C
     keyball_set_scroll_mode(get_highest_layer(state) == 3);
     return state;
 }
@@ -116,7 +117,7 @@ combo_t key_combos[] = {
   [COMBO_IME_OFF] = COMBO_ACTION(combo_c_v),
 
   [COMBO_BSPC] = COMBO(combo_o_p, KC_BSPC),
-  [COMBO_CAPS] = COMBO(combo_g_b, KC_CAPS),
+  [COMBO_CAPS] = COMBO(combo_g_b, CW_TOGG),
   [COMBO_TAB] = COMBO(combo_w_q, KC_TAB),
 };
 
