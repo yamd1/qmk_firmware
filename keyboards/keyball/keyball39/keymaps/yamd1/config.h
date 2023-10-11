@@ -36,3 +36,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAP_CODE_DELAY 5
 #define COMBO_VARIABLE_LEN
 #define COMBO_TERM 50
+#define PERMISSIVE_HOLD
