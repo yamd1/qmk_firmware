@@ -38,23 +38,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
   [1] = LAYOUT_universal(
-    KC_F1    ,  KC_F2    ,  KC_F3    ,  KC_F4    ,  KC_F5    ,                              KC_F6    ,  KC_F7    ,  KC_F8    ,  KC_F9    ,  KC_F10   ,
-    KC_ESC   ,  KC_BTN3  ,  KC_BTN2  ,  KC_BTN1  ,  XXXXXXX  ,                              XXXXXXX  ,  KC_BTN1  ,  KC_BTN2  ,  KC_BTN3  ,  KC_F11   ,
-    _______  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              KC_BTN4  ,  KC_BTN5  ,  XXXXXXX  ,  XXXXXXX  ,  KC_F12   ,
-    _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  , KC_RIGHT_SHIFT
-    ),
-
-  [2] = LAYOUT_universal(
     KC_1     ,  KC_2     ,  KC_3     ,  KC_4     ,  KC_5    ,                               KC_6     ,  KC_7     ,  KC_8     ,  KC_9      ,  KC_0     ,
     S(KC_1)  ,  S(KC_2)  ,  S(KC_3)  ,  S(KC_4)  ,  S(KC_5) ,                               KC_MINUS ,  KC_EQL   ,  S(KC_9)  ,  S(KC_0)   ,  KC_QUOT  ,
     _______  ,  C(KC_X)  ,  C(KC_C)  ,  C(KC_V)  ,  C(KC_Z) ,                               XXXXXXX  ,  KC_GRV   ,  KC_LBRC  ,  KC_RBRC   ,  KC_BSLS  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______ ,  _______  ,       _______  ,  _______  ,  _______  ,  _______  ,  _______   , _______
     ),
 
+  [2] = LAYOUT_universal(
+    KC_F1    ,  KC_F2    ,  KC_F3    ,  KC_F4    ,  KC_F5    ,                              KC_F6    ,  KC_F7    ,  KC_F8    ,  KC_F9    ,  KC_F10   ,
+    KC_ESC   ,  KC_BTN3  ,  KC_BTN2  ,  KC_BTN1  ,  XXXXXXX  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  KC_F11   ,
+    _______  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              XXXXXXX  ,  CGL      ,  CGR      ,  ALT_SPC  ,  KC_F12   ,
+    _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  , KC_RIGHT_SHIFT
+    ),
+
+
   [3] = LAYOUT_universal(
-    CG_LOCK  ,  _______  ,  _______  ,  _______  ,  _______  ,                              _______  ,  _______  ,  ALT_SPC  ,  _______  ,  C(S(KC_P)),
-    _______  ,  _______  ,  KC_LCTL  ,  KC_LSFT  ,  _______  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  KC_PSCR  ,
-    _______  ,  _______  ,  _______  ,  _______  ,  _______  ,                              CGL      ,  CGR      ,  _______  ,  _______  ,  _______  ,
+    CG_LOCK  ,  _______  ,  KC_LCTL  ,  KC_LSFT  ,  _______  ,                              _______  ,  _______  ,  _______  ,  _______  ,  C(S(KC_P)),
+    _______  ,  KC_BTN3  ,  KC_BTN2  ,  KC_BTN1  ,  _______  ,                              _______  ,  KC_BTN1  ,  KC_BTN2  ,  KC_BTN3  ,  KC_PSCR  ,
+    _______  ,  _______  ,  KC_BTN5  ,  KC_BTN4  ,  _______  ,                              _______  ,  KC_BTN4  ,  KC_BTN5  ,  _______  ,  _______  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______
   ),
 
@@ -68,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Auto enable scroll mode when the highest layer is 3C
-    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    keyball_set_scroll_mode(get_highest_layer(state) == 1);
     return state;
 }
 
@@ -77,8 +78,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
  */
 const uint16_t PROGMEM combo_w_e[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_i_o[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM combo_m_comm[] = {KC_M, KC_COMM, COMBO_END};
-const uint16_t PROGMEM combo_c_v[]    = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_comm_dot[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_x_c[]    = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_f_d[] = {KC_F, KC_D, COMBO_END};
 const uint16_t PROGMEM combo_f_s[] = {KC_F, KC_S, COMBO_END};
 const uint16_t PROGMEM combo_s_d[] = {KC_S, KC_D, COMBO_END};
@@ -113,8 +114,8 @@ combo_t key_combos[] = {
 
   [COMBO_ESC1] = COMBO_ACTION(combo_w_e),
   [COMBO_ESC2] = COMBO_ACTION(combo_i_o),
-  [COMBO_IME_ON] = COMBO(combo_m_comm, KC_LNG2),
-  [COMBO_IME_OFF] = COMBO_ACTION(combo_c_v),
+  [COMBO_IME_ON] = COMBO(combo_comm_dot, KC_LNG2),
+  [COMBO_IME_OFF] = COMBO_ACTION(combo_x_c),
 
   [COMBO_BSPC] = COMBO(combo_o_p, KC_BSPC),
   [COMBO_CAPS] = COMBO(combo_g_b, CW_TOGG),

@@ -107,7 +107,7 @@ const uint16_t PROGMEM combo_scln_j[] = {KC_SCLN, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_o_p[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_g_b[] = {KC_G, KC_B, COMBO_END};
 const uint16_t PROGMEM combo_w_q[] = {KC_W, KC_Q, COMBO_END};
-const uint16_t PROGMEM combo_lctl_k[] = {KC_LCTL, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_lctl_k[] = {HRC_L_CTL, KC_K, COMBO_END};
 
 enum combo_events {
   COMBO_ESC1 = COMBO_SAFE_RANGE,
@@ -136,7 +136,7 @@ combo_t key_combos[] = {
   [COMBO_IME_OFF] = COMBO_ACTION(combo_x_c),
 
   [COMBO_BSPC] = COMBO(combo_o_p, KC_BSPC),
-  [COMBO_BSPC2] = COMBO(combo_lctl_k, KC_BSPC),
+  [COMBO_BSPC2] = COMBO(combo_lctl_k, KC_A),
   [COMBO_CAPS] = COMBO(combo_g_b, CW_TOGG),
   [COMBO_TAB] = COMBO(combo_w_q, KC_TAB),
 };
