@@ -4,7 +4,7 @@
 #include "transactions.h"
 
 // #ifdef HOME_ROW_COMBO_EBABLE
-#define HRC_L_CTL KC_LCTL
+#define HRC_L_CTL OSM(MOD_LCTL)
 #define HRC_L_SFT OSM(MOD_LSFT)
 #define HRC_L_ALT KC_LALT
 #define HRC_L_GUI OSM(MOD_LGUI)
