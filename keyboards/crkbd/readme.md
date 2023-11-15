@@ -1,5 +1,12 @@
 # Corne Keyboard (CRKBD)
 
+---
+### compile
+
+```
+qmk compile -c -kb crkbd -km yamd1 -e CONVERT_TO=elite_pi
+```
+
 Also known (incorrectly) as the `HeliDox`. 
 
 ![Crkbd](https://user-images.githubusercontent.com/736191/40575636-6fba63a4-6123-11e8-9ca0-3f990f1f9f4c.jpg)

@@ -1,5 +1,12 @@
 # Keyball39
 
+---
+### compile
+
+```
+qmk compile -kb keyball/keyball39 -km yamd1
+```
+
 ![Keyball39](../../../../keyball39/doc/rev1/images/kb39_001.jpg)
 
 A split keyboard with 39 vertically staggered keys and 34mm track ball.
