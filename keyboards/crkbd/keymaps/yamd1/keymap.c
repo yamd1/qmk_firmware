@@ -145,8 +145,8 @@ combo_t key_combos[] = {
   [COMBO_TAB] = COMBO(combo_w_q, KC_TAB),
   [COMBO_HRC_L_CTL_SFT] = COMBO(combo_s_d_f, HRC_L_CTL_SFT),
   [COMBO_HRC_R_CTL_SFT] = COMBO(combo_l_k_j, HRC_R_CTL_SFT),
-  [COMBO_HRC_L_CTL_ALT] = COMBO(combo_a_s_d_f, HRC_L_CTL_SFT),
-  [COMBO_HRC_R_CTL_ALT] = COMBO(combo_scln_l_k_j, HRC_R_CTL_SFT),
+  [COMBO_HRC_L_CTL_ALT] = COMBO(combo_a_s_d_f, HRC_L_CTL_ALT),
+  [COMBO_HRC_R_CTL_ALT] = COMBO(combo_scln_l_k_j, HRC_R_CTL_ALT),
 };
 
 // clang-format on
