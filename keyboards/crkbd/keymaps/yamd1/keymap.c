@@ -156,6 +156,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         case COMBO_ESC2:
             if (pressed) {
                 tap_code(KC_LNG2);
+                caps_word_off();
                 register_code(KC_ESC);
             } else {
                 unregister_code(KC_ESC);
