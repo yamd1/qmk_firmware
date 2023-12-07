@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // clang-format off
 
 enum my_custom_keycodes {
-    MY_ARW = QK_USER,
+    MY_ARW = SAFE_RANGE,
     MY_DARW,
 };
 
