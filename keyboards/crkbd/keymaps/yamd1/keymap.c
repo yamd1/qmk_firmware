@@ -20,11 +20,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "yamd1.h"
 
 // clang-format off
+
+enum my_custom_keycodes {
+    MY_ARW = QK_USER,
+    MY_DARW,
+};
+
 #define LSHIFT_Z MT(MOD_LSFT, KC_Z)
 #define CGR     LCTL(LGUI(KC_RIGHT))
 #define CGL     LCTL(LGUI(KC_LEFT))
 #define CG_LOCK  LGUI(KC_L)
 #define ALT_SPC  LALT(KC_SPC)
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case MY_ARW:
+      if(record->event.pressed) {
+        SEND_STRING("->");
+      }
+      break;
+    case MY_DARW:
+      if(record->event.pressed) {
+        SEND_STRING("=>");
+      }
+      break;
+    default:
+      break;
+  }
+  return true;
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
@@ -45,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+-----------------------|                            |--------+--------+--------+--------+--------+--------------------------|
      _______ ,  S(KC_1)  ,  S(KC_2)  ,  S(KC_3)  ,  S(KC_4)  ,  S(KC_5)  ,                               KC_MINUS ,  KC_EQL   ,  S(KC_9)  ,  S(KC_0)  ,  KC_QUOT  ,  _______  ,
   //|--------+--------+--------+--------+--------+-----------------------|                            |--------+--------+--------+--------+--------+--------------------------|
-     _______ ,  C(KC_Z)  ,  C(KC_X)  ,  C(KC_C)  ,  C(KC_V)  ,  _______  ,                               XXXXXXX  ,  KC_GRV   ,  KC_LBRC  ,  KC_RBRC  ,  KC_BSLS  ,  _______  ,
+     _______ ,  XXXXXXX  , S(KC_LBRC), S(KC_RBRC),  XXXXXXX  ,  _______  ,                             S(KC_MINUS),  KC_GRV   ,  KC_LBRC  ,  KC_RBRC  ,  KC_BSLS  ,  _______  ,
   //|--------+--------+--------+--------+--------+-----------------------|                            |--------+--------+--------+--------+--------+--------------------------|
                                                     _______  , _______   ,  _______  ,       _______  ,  MO(3)    ,  _______
                                                   //`-------------------------------'       `-----------------------------------'
@@ -65,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [3] = LAYOUT_split_3x6_3(
   //,--------------------------------------------------------------------.                            ,----------------------------------------------------------------------.
-    QK_BOOT  ,  BL_BRTG  ,  BL_TOGG  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                               XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  , XXXXXXX  ,
+    QK_BOOT  ,  BL_BRTG  ,  BL_TOGG  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                               XXXXXXX  ,  MY_ARW   ,  MY_DARW  ,  XXXXXXX  ,  XXXXXXX  , XXXXXXX  ,
   //|--------+--------+--------+--------+--------+-----------------------|                            |--------+--------+--------+--------+--------+-------------------------|
     RGB_TOG  ,  RGB_HUI  ,  RGB_SAI  ,  RGB_VAI  ,  KC_BTN1  ,  KC_BTN2  ,                               KC_MS_L  ,  KC_MS_D  ,  KC_MS_U  ,  KC_MS_R  ,  XXXXXXX  , XXXXXXX  ,
   //|--------+--------+--------+--------+--------+-----------------------|                            |--------+--------+--------+--------+--------+-------------------------|

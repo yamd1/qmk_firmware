@@ -20,6 +20,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "yamd1.h"
 
 // clang-format off
+
+enum my_custom_keycodes {
+    MY_ARW = QK_USER,
+    MY_DARW,
+};
+
 #define LSHIFT_Z MT(MOD_LSFT, KC_Z)
 #define LY3_SPC  LT(3, KC_SPC)
 #define CGR      LCTL(LGUI(KC_RIGHT))
@@ -27,6 +33,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CG_LOCK  LGUI(KC_L)
 #define ALT_SPC  LALT(KC_SPC)
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case MY_ARW:
+      if(record->event.pressed) {
+        SEND_STRING("->");
+      }
+      break;
+    case MY_DARW:
+      if(record->event.pressed) {
+        SEND_STRING("=>");
+      }
+      break;
+    default:
+      break;
+  }
+  return true;
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
@@ -40,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_universal(
     KC_1     ,  KC_2     ,  KC_3     ,  KC_4     ,  KC_5    ,                               KC_6     ,  KC_7     ,  KC_8     ,  KC_9      ,  KC_0     ,
     S(KC_1)  ,  S(KC_2)  ,  S(KC_3)  ,  S(KC_4)  ,  S(KC_5) ,                               KC_MINUS ,  KC_EQL   ,  S(KC_9)  ,  S(KC_0)   ,  KC_QUOT  ,
-    _______  ,  C(KC_X)  ,  C(KC_C)  ,  C(KC_V)  ,  C(KC_Z) ,                               XXXXXXX  ,  KC_GRV   ,  KC_LBRC  ,  KC_RBRC   ,  KC_BSLS  ,
+    _______  ,  XXXXXXX  , S(KC_LBRC), S(KC_RBRC),  XXXXXXX ,                             S(KC_MINUS),  KC_GRV   ,  KC_LBRC  ,  KC_RBRC   ,  KC_BSLS  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______ ,  _______  ,       _______  ,  _______  ,  _______  ,  _______  ,  _______   , _______
     ),
 
@@ -53,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
   [3] = LAYOUT_universal(
-    CG_LOCK  ,  _______  ,  KC_LCTL  ,  KC_LSFT  ,  _______  ,                              _______  ,  _______  ,  _______  ,  _______  ,  C(S(KC_P)),
+    CG_LOCK  ,  _______  ,  KC_LCTL  ,  KC_LSFT  ,  _______  ,                              _______  ,  MY_ARW   ,  MY_DARW  ,  _______  ,  C(S(KC_P)),
     _______  ,  KC_BTN3  ,  KC_BTN2  ,  KC_BTN1  ,  _______  ,                              _______  ,  KC_BTN1  ,  KC_BTN2  ,  KC_BTN3  ,  KC_PSCR  ,
     _______  ,  _______  ,  KC_BTN5  ,  KC_BTN4  ,  _______  ,                              _______  ,  KC_BTN4  ,  KC_BTN5  ,  _______  ,  _______  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______
@@ -150,6 +173,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             break;
     }
 }
+
 
 #ifdef OLED_ENABLE
 
