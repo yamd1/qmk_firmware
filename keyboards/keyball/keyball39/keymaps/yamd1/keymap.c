@@ -68,17 +68,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
   [2] = LAYOUT_universal(
-    KC_F1    ,  KC_F2    ,  KC_F3    ,  KC_F4    ,  KC_F5    ,                              KC_F6    ,  KC_F7    ,  KC_F8    ,  KC_F9    ,  KC_F10   ,
-    KC_ESC   ,  XXXXXXX  ,  KC_BTN3  ,  KC_BTN1  ,  KC_BTN2  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  KC_F11   ,
-    _______  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              KC_HOME  ,  KC_PGUP  ,  KC_PGDN  ,  KC_END   ,  KC_F12   ,
+    _______  ,  _______  ,  _______  ,  _______  ,  _______  ,                              _______  ,  MY_ARW   ,  MY_DARW  ,  _______  ,  _______  ,
+    KC_ESC   ,  XXXXXXX  ,  KC_BTN3  ,  KC_BTN1  ,  KC_BTN2  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  _______  ,
+    _______  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              KC_HOME  ,  KC_PGUP  ,  KC_PGDN  ,  KC_END   ,  _______  ,
     _______  ,  _______  ,  _______  ,  KC_DEL   ,  MO(3)    ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  , KC_RIGHT_SHIFT
     ),
 
 
   [3] = LAYOUT_universal(
-    CG_LOCK  ,  _______  ,  MY_DARW  ,  MY_ARW   ,  _______  ,                              _______  ,  MY_ARW   ,  MY_DARW  ,  _______  ,  C(S(KC_P)),
-    _______  ,  KC_BTN3  ,  KC_BTN2  ,  KC_BTN1  ,  _______  ,                              _______  ,  KC_BTN1  ,  KC_BTN2  ,  KC_BTN3  ,  KC_PSCR  ,
-    _______  ,  _______  ,  KC_BTN5  ,  KC_BTN4  ,  _______  ,                              _______  ,  KC_BTN4  ,  KC_BTN5  ,  _______  ,  _______  ,
+    KC_F1    ,  KC_F2    ,  KC_F3    ,  KC_F4    ,  KC_F5    ,                              KC_F6    ,  KC_F7    ,  KC_F8    ,  KC_F9    ,  KC_F10  ,
+    _______  ,  KC_BTN3  ,  KC_BTN2  ,  KC_BTN1  ,  _______  ,                              _______  ,  KC_BTN1  ,  KC_BTN2  ,  KC_BTN3  ,  KC_F11  ,
+    _______  ,  _______  ,  KC_BTN5  ,  KC_BTN4  ,  _______  ,                              _______  ,  KC_BTN4  ,  KC_BTN5  ,  _______  ,  KC_F12  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______
   ),
 
@@ -118,6 +118,7 @@ const uint16_t PROGMEM combo_s_d_f[] = {KC_S, KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_l_k_j[] = {KC_L, KC_K, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_a_s_d_f[] = {KC_A, KC_S, KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_scln_l_k_j[] = {KC_SCLN, KC_L, KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_f_j[] = {KC_F, KC_J, COMBO_END};
 
 enum combo_events {
   COMBO_ESC1 = COMBO_SAFE_RANGE,
@@ -146,6 +147,7 @@ combo_t key_combos[] = {
 
   [COMBO_BSPC] = COMBO(combo_o_p, KC_BSPC),
   [COMBO_CAPS] = COMBO(combo_g_b, CW_TOGG),
+  [COMBO_CAPS] = COMBO(combo_f_j, CW_TOGG),
   [COMBO_TAB] = COMBO(combo_w_q, KC_TAB),
   [COMBO_HRC_L_CTL_SFT] = COMBO(combo_s_d_f, HRC_L_CTL_SFT),
   [COMBO_HRC_R_CTL_SFT] = COMBO(combo_l_k_j, HRC_R_CTL_SFT),
