@@ -120,22 +120,46 @@ const uint16_t PROGMEM combo_w_e[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_i_o[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_comm_dot[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_x_c[]    = {KC_X, KC_C, COMBO_END};
+
 const uint16_t PROGMEM combo_f_d[] = {KC_F, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_s4_s3[] = {S(KC_4), S(KC_3), COMBO_END};
+
 const uint16_t PROGMEM combo_f_s[] = {KC_F, KC_S, COMBO_END};
+const uint16_t PROGMEM combo_s4_s2[] = {S(KC_4), S(KC_2), COMBO_END};
+
 const uint16_t PROGMEM combo_s_d[] = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_s2_s3[] = {S(KC_2), S(KC_3), COMBO_END};
+
 const uint16_t PROGMEM combo_a_f[] = {KC_A, KC_F, COMBO_END};
+const uint16_t PROGMEM combo_s1_s4[] = {S(KC_1), S(KC_4), COMBO_END};
+
 const uint16_t PROGMEM combo_k_j[] = {KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_s9_eq[] = {S(KC_9), KC_EQL, COMBO_END};
+
 const uint16_t PROGMEM combo_l_j[] = {KC_L, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_s0_eq[] = {S(KC_0), KC_EQL, COMBO_END};
+
 const uint16_t PROGMEM combo_l_k[] = {KC_L, KC_K, COMBO_END};
+const uint16_t PROGMEM combo_s0_s9[] = {S(KC_0), S(KC_9), COMBO_END};
+
 const uint16_t PROGMEM combo_scln_j[] = {KC_SCLN, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_quot_eq[] = {KC_QUOT, KC_EQL, COMBO_END};
+
 const uint16_t PROGMEM combo_o_p[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_g_b[] = {KC_G, KC_B, COMBO_END};
 const uint16_t PROGMEM combo_w_q[] = {KC_W, KC_Q, COMBO_END};
-const uint16_t PROGMEM combo_lctl_k[] = {HRC_L_CTL, KC_K, COMBO_END};
+
 const uint16_t PROGMEM combo_s_d_f[] = {KC_S, KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM combo_s2_s3_s4[] = {S(KC_2), S(KC_3), S(KC_4), COMBO_END};
+
 const uint16_t PROGMEM combo_l_k_j[] = {KC_L, KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_s0_s9_eq[] = {S(KC_0), S(KC_9), KC_EQL, COMBO_END};
+
 const uint16_t PROGMEM combo_a_s_d_f[] = {KC_A, KC_S, KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM combo_s1_s2_s3_s4[] = {S(KC_1), S(KC_2), S(KC_3), S(KC_4), COMBO_END};
+
 const uint16_t PROGMEM combo_scln_l_k_j[] = {KC_SCLN, KC_L, KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_quot_s0_s9_eq[] = {KC_EQL, S(KC_0), S(KC_9), KC_EQL, COMBO_END};
+
 const uint16_t PROGMEM combo_f_j[] = {KC_F, KC_J, COMBO_END};
 
 enum combo_events {
@@ -150,14 +174,29 @@ enum combo_events {
 };
 
 combo_t key_combos[] = {
-  [COMBO_HRC_L_CTL] = COMBO(combo_f_d, HRC_L_CTL),
-  [COMBO_HRC_L_SFT] = COMBO(combo_f_s, HRC_L_SFT),
-  [COMBO_HRC_L_ALT] = COMBO(combo_s_d, HRC_L_ALT),
-  [COMBO_HRC_L_GUI] = COMBO(combo_a_f, HRC_L_GUI),
-  [COMBO_HRC_R_CTL] = COMBO(combo_k_j, HRC_R_CTL),
-  [COMBO_HRC_R_SFT] = COMBO(combo_l_j, HRC_R_SFT),
-  [COMBO_HRC_R_ALT] = COMBO(combo_l_k, HRC_R_ALT),
-  [COMBO_HRC_R_GUI] = COMBO(combo_scln_j, HRC_R_GUI),
+  [COMBO_HRC_L_CTL_0] = COMBO(combo_f_d, HRC_L_CTL),
+  [COMBO_HRC_L_CTL_1] = COMBO(combo_s4_s3, HRC_L_CTL),
+
+  [COMBO_HRC_L_SFT_0] = COMBO(combo_f_s, HRC_L_SFT),
+  [COMBO_HRC_L_SFT_1] = COMBO(combo_s4_s2, HRC_L_SFT),
+
+  [COMBO_HRC_L_ALT_0] = COMBO(combo_s_d, HRC_L_ALT),
+  [COMBO_HRC_L_ALT_1] = COMBO(combo_s2_s3, HRC_L_ALT),
+
+  [COMBO_HRC_L_GUI_0] = COMBO(combo_a_f, HRC_L_GUI),
+  [COMBO_HRC_L_GUI_1] = COMBO(combo_s1_s4, HRC_L_GUI),
+
+  [COMBO_HRC_R_CTL_0] = COMBO(combo_k_j, HRC_R_CTL),
+  [COMBO_HRC_R_CTL_1] = COMBO(combo_s9_eq, HRC_R_CTL),
+
+  [COMBO_HRC_R_SFT_0] = COMBO(combo_l_j, HRC_R_SFT),
+  [COMBO_HRC_R_SFT_1] = COMBO(combo_s0_eq, HRC_R_SFT),
+
+  [COMBO_HRC_R_ALT_0] = COMBO(combo_l_k, HRC_R_ALT),
+  [COMBO_HRC_R_ALT_1] = COMBO(combo_s0_s9, HRC_R_ALT),
+
+  [COMBO_HRC_R_GUI_0] = COMBO(combo_scln_j, HRC_R_GUI),
+  [COMBO_HRC_R_GUI_1] = COMBO(combo_quot_eq, HRC_R_GUI),
 
   [COMBO_ESC1] = COMBO_ACTION(combo_w_e),
   [COMBO_ESC2] = COMBO_ACTION(combo_i_o),
@@ -165,14 +204,20 @@ combo_t key_combos[] = {
   [COMBO_IME_OFF] = COMBO_ACTION(combo_x_c),
 
   [COMBO_BSPC] = COMBO(combo_o_p, KC_BSPC),
-  [COMBO_BSPC2] = COMBO(combo_lctl_k, KC_A),
-  [COMBO_CAPS] = COMBO(combo_g_b, CW_TOGG),
   [COMBO_CAPS] = COMBO(combo_f_j, CW_TOGG),
   [COMBO_TAB] = COMBO(combo_w_q, KC_TAB),
-  [COMBO_HRC_L_CTL_SFT] = COMBO(combo_s_d_f, HRC_L_CTL_SFT),
-  [COMBO_HRC_R_CTL_SFT] = COMBO(combo_l_k_j, HRC_R_CTL_SFT),
-  [COMBO_HRC_L_CTL_ALT] = COMBO(combo_a_s_d_f, HRC_L_CTL_ALT),
-  [COMBO_HRC_R_CTL_ALT] = COMBO(combo_scln_l_k_j, HRC_R_CTL_ALT),
+
+  [COMBO_HRC_L_CTL_SFT_0] = COMBO(combo_s_d_f, HRC_L_CTL_SFT),
+  [COMBO_HRC_L_CTL_SFT_1] = COMBO(combo_s2_s3_s4, HRC_L_CTL_SFT),
+
+  [COMBO_HRC_R_CTL_SFT_0] = COMBO(combo_l_k_j, HRC_R_CTL_SFT),
+  [COMBO_HRC_R_CTL_SFT_1] = COMBO(combo_s0_s9_eq, HRC_R_CTL_SFT),
+
+  [COMBO_HRC_L_CTL_ALT_0] = COMBO(combo_a_s_d_f, HRC_L_CTL_ALT),
+  [COMBO_HRC_L_CTL_ALT_1] = COMBO(combo_s1_s2_s3_s4, HRC_L_CTL_ALT),
+
+  [COMBO_HRC_R_CTL_ALT_0] = COMBO(combo_scln_l_k_j, HRC_R_CTL_ALT),
+  [COMBO_HRC_R_CTL_ALT_1] = COMBO(combo_quot_s0_s9_eq, HRC_R_CTL_ALT),
 };
 
 // clang-format on
