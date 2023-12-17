@@ -104,7 +104,6 @@ const uint16_t PROGMEM combo_i_o[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_comm_dot[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_x_c[]    = {KC_X, KC_C, COMBO_END};
 
-
 const uint16_t PROGMEM combo_f_d[] = {KC_F, KC_D, COMBO_END};
 const uint16_t PROGMEM combo_s4_s3[] = {S(KC_4), S(KC_3), COMBO_END};
 
