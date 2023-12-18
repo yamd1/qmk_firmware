@@ -68,17 +68,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
   [2] = LAYOUT_universal(
-    _______  ,  _______  ,  _______  ,  _______  ,  _______  ,                              _______  ,  MY_ARW   ,  MY_DARW  ,  _______  ,  _______  ,
-    KC_ESC   ,  XXXXXXX  ,  KC_BTN3  ,  KC_BTN1  ,  KC_BTN2  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  _______  ,
-    _______  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              KC_HOME  ,  KC_PGUP  ,  KC_PGDN  ,  KC_END   ,  _______  ,
+    XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              XXXXXXX  ,  MY_ARW   ,  MY_DARW  ,  _______  ,  _______  ,
+    _______  ,  _______  ,  _______  ,  _______  ,  _______  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  _______  ,
+    XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              KC_HOME  ,  KC_PGUP  ,  KC_PGDN  ,  KC_END   ,  _______  ,
     _______  ,  _______  ,  _______  ,  KC_DEL   ,  MO(3)    ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  , KC_RIGHT_SHIFT
     ),
 
 
   [3] = LAYOUT_universal(
     KC_F1    ,  KC_F2    ,  KC_F3    ,  KC_F4    ,  KC_F5    ,                              KC_F6    ,  KC_F7    ,  KC_F8    ,  KC_F9    ,  KC_F10  ,
-    _______  ,  KC_BTN3  ,  KC_BTN2  ,  KC_BTN1  ,  _______  ,                              _______  ,  KC_BTN1  ,  KC_BTN2  ,  KC_BTN3  ,  KC_F11  ,
-    _______  ,  _______  ,  KC_BTN5  ,  KC_BTN4  ,  _______  ,                              _______  ,  KC_BTN4  ,  KC_BTN5  ,  _______  ,  KC_F12  ,
+    _______  ,  _______  ,  _______  ,  KC_BTN1  ,  KC_BTN2  ,                              _______  ,  KC_BTN1  ,  KC_BTN2  ,  KC_BTN3  ,  KC_F11  ,
+    _______  ,  _______  ,  _______  ,  _______  ,  _______  ,                              _______  ,  KC_BTN4  ,  KC_BTN5  ,  _______  ,  KC_F12  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  ,  _______
   ),
 
