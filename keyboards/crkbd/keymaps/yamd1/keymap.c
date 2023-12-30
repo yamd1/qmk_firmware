@@ -44,6 +44,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("=>");
       }
       break;
+    case KC_MINUS:
+      if(record->event.pressed) {
+        if(is_caps_word_on()) {
+          register_code(KC_MINUS);
+          return false;
+        }
+      }
+      break;
     default:
       break;
   }
