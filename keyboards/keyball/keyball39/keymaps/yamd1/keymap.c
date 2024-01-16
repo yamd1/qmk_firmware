@@ -61,14 +61,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
   [1] = LAYOUT_universal(
-    KC_1     ,  KC_2     ,  KC_3     ,  KC_4     ,  KC_5    ,                               KC_6     ,  KC_7     ,  KC_8     ,  KC_9      ,  KC_0     ,
-    S(KC_1)  ,  S(KC_2)  ,  S(KC_3)  ,  S(KC_4)  ,  S(KC_5) ,                               KC_MINUS ,  KC_EQL   ,  S(KC_9)  ,  S(KC_0)   ,  KC_QUOT  ,
-    XXXXXXX  , S(KC_LBRC), S(KC_RBRC),  XXXXXXX  ,  KC_ENT  ,                             S(KC_MINUS),  KC_GRV   ,  KC_LBRC  ,  KC_RBRC   ,  KC_BSLS  ,
+    XXXXXXX  ,  XXXXXXX  ,  MY_DARW  ,  MY_ARW   ,  XXXXXXX  ,                              S(KC_6)  ,  S(KC_7)  ,  S(KC_9)  ,  S(KC_0)   ,  S(KC_8)  ,
+    S(KC_1)  ,  S(KC_2)  ,  S(KC_3)  ,  S(KC_4)  ,  S(KC_5) ,                               KC_MINUS ,  KC_EQL   ,  KC_LBRC  ,  KC_RBRC   ,  KC_QUOT  ,
+    XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  KC_ENT  ,                             S(KC_MINUS),  KC_GRV   , S(KC_LBRC), S(KC_RBRC) ,  KC_BSLS  ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______ ,  _______  ,       _______  ,  MO(3)    ,  _______  ,  _______  ,  _______   , _______
     ),
 
   [2] = LAYOUT_universal(
-    XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              XXXXXXX  ,  MY_ARW   ,  MY_DARW  ,  _______  ,  _______  ,
+    KC_1     ,  KC_2     ,  KC_3     ,  KC_4     ,  KC_5    ,                               KC_6     ,  KC_7     ,  KC_8     ,  KC_9     ,  KC_0     ,
     _______  ,  _______  ,  _______  ,  _______  ,  _______  ,                              KC_LEFT  ,  KC_DOWN  ,  KC_UP    ,  KC_RIGHT ,  _______  ,
     XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,  XXXXXXX  ,                              KC_HOME  ,  KC_PGUP  ,  KC_PGDN  ,  KC_END   ,  _______  ,
     _______  ,  _______  ,  _______  ,  KC_DEL   ,  MO(3)    ,  _______  ,      _______  ,  _______  ,  _______  ,  _______  ,  _______  , KC_RIGHT_SHIFT
@@ -145,6 +145,8 @@ const uint16_t PROGMEM combo_quot_s0_s9_eq[] = {KC_EQL, S(KC_0), S(KC_9), KC_EQL
 
 const uint16_t PROGMEM combo_f_j[] = {KC_F, KC_J, COMBO_END};
 
+const uint16_t PROGMEM combo_x_c_v[] = {KC_X, KC_C, KC_V, COMBO_END};
+
 enum combo_events {
   COMBO_ESC1 = COMBO_SAFE_RANGE,
   COMBO_ESC2,
@@ -153,6 +155,7 @@ enum combo_events {
   COMBO_BSPC,
   COMBO_TAB,
   COMBO_CAPS,
+  COMBO_ENT,
 };
 
 combo_t key_combos[] = {
@@ -200,6 +203,8 @@ combo_t key_combos[] = {
 
   [COMBO_HRC_R_CTL_ALT_0] = COMBO(combo_scln_l_k_j, HRC_R_CTL_ALT),
   [COMBO_HRC_R_CTL_ALT_1] = COMBO(combo_quot_s0_s9_eq, HRC_R_CTL_ALT),
+
+  [COMBO_ENT] = COMBO(combo_x_c_v, HRC_ENTER),
 };
 
 // clang-format on
