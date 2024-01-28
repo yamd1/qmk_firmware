@@ -4,7 +4,14 @@
 ### compile
 
 ```
+# elite pi
 qmk compile -c -kb crkbd -km yamd1 -e CONVERT_TO=elite_pi
+
+# Pro micro
+# config.h:
+  #define MASTER_RIGHT
+qmk compile -c -kb crkbd -km yamd1
+
 ```
 
 Also known (incorrectly) as the `HeliDox`. 
